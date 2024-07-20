@@ -42,7 +42,7 @@ function makeChoice(userChoice) {
     }
 
     // Check if either player has reached 2 points to reset the scores
-    if (userScore === 5 || computerScore === 5) {
+    if (userScore === 20 || computerScore === 20) {
         // Display who won the game
         if (userScore > computerScore) {
             localStorage.setItem('resultMessage', 'You won the game!');
