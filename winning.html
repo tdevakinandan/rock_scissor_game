@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winning Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #89C15E; /* Background color */
+            text-align: center; /* Center text inside body */
+            font-family: 'Roboto', sans-serif; /* Apply Roboto font */
+        }
+
+        #image-container {
+            position: relative; /* Allow absolute positioning of child elements */
+            width: 504px; /* Set to width of the widest image */
+            height: 297px; /* Set to height of the tallest image */
+            margin-top: 20px; /* Add space above the image container */
+        }
+
+        #image1, #image2 {
+            position: absolute;
+        }
+
+        #image1 {
+            width: 504px;
+            height: 297px;
+            top: -150px;
+            left: 0;
+            opacity: 1; /* Fully visible */
+            z-index: 1; /* Ensure this image is below image2 */
+        }
+
+        #image2 {
+            width: 200.43px;
+            height: 201px;
+            top: 20px; /* Position image2 to be above image1 */
+            left: 150px; /* Adjust this value to position image2 horizontally */
+            opacity: 1; /* Fully visible */
+            z-index: 2; /* Ensure this image is above image1 */
+        }
+
+        #greeting, #win_note {
+            font-size: 50px; /* Increase font size for better visibility */
+            color: #fff; /* White text color */
+            width: 504px; /* Same width as the image container */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        #win_note {
+            font-size: 20px; /* Adjust font size if needed */
+            margin: 10px 0; /* Space between text elements */
+        }
+
+        #play_again {
+            background-color: white; /* White background for the button */
+            border: 2px solid white;
+            color: black; /* Text color for the button */
+            width: 205px;
+            height: 40px;
+            font-size: 20px;
+            border-radius: 10px; /* Border radius for curved edges */
+            margin: 10px 0; /* Margin to separate from win_note */
+        }
+
+        #rules {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    position: fixed; /* Fixed position */
+    bottom: 70px; /* Adjust to position from bottom */
+    right: 40px; /* Adjust to position from right */
+    border-radius: 10px; /* Border radius for curved edges */
+    text-align: center; /* Center text inside button */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+
+        /* Rules modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #004429;
+            border: 7px solid #FFFFFF;
+            border-radius: 13px;
+            width: 300px;
+            height: 425px;
+            position: absolute;
+            bottom: 180px;
+            right: 30px;
+            box-sizing: border-box;
+            color: white; /* Add this to include padding and border in the element's total width and height */
+            padding-left: 20px; /* Adjust the left padding as needed */
+            padding-top: 20px; /* Add top padding for better spacing */
+            text-align: left; /* Align text to the left */
+        }
+
+        .close {
+            position: absolute;
+            top: -20px;
+            right: -15px;
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            cursor: pointer;
+        }
+
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s;
+        }
+
+        @-webkit-keyframes animatezoom {
+            from { -webkit-transform: scale(0) }
+            to { -webkit-transform: scale(1) }
+        }
+
+        @keyframes animatezoom {
+            from { transform: scale(0) }
+            to { transform: scale(1) }
+        }
+
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="image-container">
+        <img id="image1" src="Starts.png" alt="Start">
+        <img id="image2" src="Winning.png" alt="Winning">
+    </div>
+    <div id="greeting">HURRAY!!</div>
+    <div id="win_note">YOU WON THE GAME</div>
+
+    <button onclick="window.location.href='index.html';" id="play_again">Play Again</button>
+    <button onclick="openModal()" id="rules">Rules</button>
+
+    <div id="id01" class="modal">
+        <form class="modal-content animate">
+            <span onclick="closeModal()" class="close" title="Close Modal">✖</span>
+            <div class="rules">
+                <h2 style="text-align: center;">Game Rules</h2>
+                <p>&#9744; &nbsp; &nbsp;Rock beats scissors, scissors beat paper, and paper beats rock.</p>
+                <p> &#9744; &nbsp; &nbsp;Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</p>
+                <p>&#9744; &nbsp; &nbsp;Rock, paper, scissors to settle minor decisions or simply play to pass the time.</p>
+                <p>&#9744; &nbsp; &nbsp;If both players lay down the same hand, each player lays down another hand.</p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+        function openModal() {
+            var modal = document.getElementById('id01');
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('id01');
+            modal.style.display = 'none';
+        }
+
+        // Close the modal when the user clicks anywhere outside of the modal
+        window.onclick = function(event) {
+            var modal = document.getElementById('id01');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

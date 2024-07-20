@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+    <body>
+        <div class="container">
+            <div class="left-text">
+                <p>ROCK</p>
+                <p>PAPER</p>
+                <p>SCISSORS</p>
+            </div>
+            <div class="score-boxes">
+                <div class="score-box">
+                    <p>Computer<br>Score</p>
+                    <p id="computer-score" style="font-size: 40px;">0</p>
+                </div>
+                <div class="score-box">
+                    <p>Your<br>Score</p>
+                    <p id="your-score" style="font-size: 40px;">0</p>
+                </div>
+            </div>   
+        </div>
+        <div class="triangle-container">
+            <div class="icons">
+                <div class="avatar-container_1" id="rock" onclick="makeChoice('rock')">
+                    <div class="line line-left"></div>
+                    <img src="Rock.png" alt="Avatar" class="avatar choice" data-choice="rock">
+                </div>
+                <div class="avatar-container_2" id="scissors" onclick="makeChoice('scissors')">
+                    <div class="line line-right"></div>
+                    <img src="Scisser.png" alt="Avatar" class="avatar choice" data-choice="scissors">
+                </div>
+                <div class="avatar-container_3" id="paper" onclick="makeChoice('paper')">
+                    <img src="Paper.png" alt="Avatar" class="avatar choice" data-choice="paper">
+                </div>
+            </div>
+        </div>
+        <button onclick="openModal()" style="width:auto;">Rules</button>
+        
+    
+    <div id="id01" class="modal">
+        <form class="modal-content animate">
+            <span onclick="closeModal()" class="close" title="Close Modal" >✖</span>
+            <div class="rules">
+                <h2 style="text-align: center;">Game Rules</h2>
+                <p>&#9744; &nbsp; &nbsp;Rock beats scissors, scissors beat paper, and paper beats rock.</p>
+                <p> &#9744; &nbsp; &nbsp;Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</p>
+                <p>&#9744; &nbsp; &nbsp;rock, paper, scissors to settle minor decisions or simply play to pass the time.</p>
+                <p>&#9744; &nbsp; &nbsp;If both players lay down the same hand, each player lays down another hand.</p>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
